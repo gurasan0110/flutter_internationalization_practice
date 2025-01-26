@@ -1,0 +1,15 @@
+# https://docs.github.com/ja/actions/writing-workflows/workflow-syntax-for-github-actions
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: kuhnroyal/flutter-fvm-config-action/setup@v3
+      - run: flutter analyze
